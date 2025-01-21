@@ -54,6 +54,6 @@ if __name__ == "__main__":
     data = get_github_data(username)
     if 'error' not in data:
         save_to_csv(data)
-        print(f"Data saved to following_followers.csv")
+        print(f"Data saved to github_data.csv")
     else:
         print(data['error'])
