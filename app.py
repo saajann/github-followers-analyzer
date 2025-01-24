@@ -80,15 +80,15 @@ if os.path.exists(csv_file):
         st.write("### Users Not Following Back")
         st.dataframe(not_following_back, use_container_width=True)
 
-    # Pie chart for followers and following
+    not_following_back_count = len(not_following_back)
+    following_back_count = following_count - not_following_back_count
     fig1, ax1 = plt.subplots()
-    ax1.pie([following_count, followers_count], labels=['Following', 'Followers'], autopct='%1.1f%%', startangle=90)
-    ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+    ax1.pie([not_following_back_count, following_back_count], labels=['Not Following Back', 'Following Back'], autopct='%1.1f%%', startangle=90)
+    ax1.axis('equal') 
     st.pyplot(fig1)
 
-    # Bar chart for users not following back
     fig2, ax2 = plt.subplots()
-    sns.barplot(x=['Not Following Back', 'Following Back'], y=[len(not_following_back), following_count - len(not_following_back)], ax=ax2)
+    sns.barplot(x=['Following', 'Followers'], y=[following_count, followers_count], ax=ax2)
     ax2.set_ylabel('Count')
     st.pyplot(fig2)
         
