@@ -80,12 +80,11 @@ if os.path.exists(csv_file):
     st.write(f"**Not Following Back:** {len(not_following_back)}")
     st.write(f"**Mutual Followers:** {len(mutual_followers)}")
     
-    # Rapporto Followers/Following
+    # Followers/Following ratio
     if following_count > 0:
         ratio = followers_count / following_count
         st.write(f"**Followers/Following Ratio:** {ratio:.2f}")
     
-    # Sezione Espandibile per Dettagli
     with st.expander("Show Detailed Stats"):
         st.write("### Users Not Following Back")
         st.dataframe(not_following_back, use_container_width=True)
@@ -93,7 +92,7 @@ if os.path.exists(csv_file):
         st.write("### Mutual Followers")
         st.dataframe(mutual_followers, use_container_width=True)
     
-    # Grafici
+    # Plots
     col1, col2 = st.columns(2)
     
     with col1:
@@ -112,7 +111,6 @@ if os.path.exists(csv_file):
         ax2.axis('equal')
         st.pyplot(fig2)
     
-    # Grafico a Barre Orizzontali per Mutual Followers
     st.write("### Mutual Followers vs Not Mutual")
     mutual_count = len(mutual_followers)
     non_mutual_count = following_count - mutual_count
@@ -121,7 +119,6 @@ if os.path.exists(csv_file):
     ax3.set_xlabel('Count')
     st.pyplot(fig3)
     
-    # Pulsante per il Download del CSV
     st.download_button(
         label="Download CSV",
         data=open(csv_file, 'rb').read(),
