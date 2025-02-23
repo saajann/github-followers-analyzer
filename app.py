@@ -87,7 +87,15 @@ if os.path.exists(csv_file):
     
     with st.expander("Show Detailed Stats"):
         st.write("### Users Not Following Back")
-        st.dataframe(not_following_back, use_container_width=True)
+        
+        # Creazione della tabella HTML con link cliccabili
+        html_table = "<table><tr><th>Username</th><th>Link</th></tr>"
+        for row in not_following_back:
+            html_table += f"<tr><td>{row['username']}</td><td><a href='{row['link']}' target='_blank'>Open Profile</a></td></tr>"
+        html_table += "</table>"
+        
+        # Visualizzazione della tabella
+        st.markdown(html_table, unsafe_allow_html=True)
         
         st.write("### Mutual Followers")
         st.dataframe(mutual_followers, use_container_width=True)
