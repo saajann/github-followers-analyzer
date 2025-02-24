@@ -4,22 +4,24 @@ import csv
 import os
 import matplotlib.pyplot as plt
 import seaborn as sns
+import glob
 
 @st.cache_data
-def fetch_all_pages(url):
+def fetch_all_pages(url, headers):
     results = []
     while url:
-        response = requests.get(url)
+        response = requests.get(url, headers=headers)
         if response.status_code != 200:
             return None
         results.extend(response.json())
         url = response.links.get('next', {}).get('url')
     return results
 
-def get_github_data(username):
+def get_github_data(username, token=None):
+    headers = {'Authorization': f'token {token}'} if token else {}
     base_url = f"https://api.github.com/users/{username}"
-    followers = fetch_all_pages(f"{base_url}/followers")
-    following = fetch_all_pages(f"{base_url}/following")
+    followers = fetch_all_pages(f"{base_url}/followers", headers)
+    following = fetch_all_pages(f"{base_url}/following", headers)
     
     if followers is not None and following is not None:
         return {
@@ -46,29 +48,48 @@ def read_csv(filepath):
     with open(filepath, mode='r') as file:
         return list(csv.DictReader(file))
 
-# Streamlit App
-st.title("GitHub Follower and Following Checker")
+def get_existing_csv_files():
+    return glob.glob("data/github_data_*.csv")
 
+# Streamlit App
+st.set_page_config(layout="wide", page_title="GitHub Followers Analyzer")
+st.title("GitHub Followers Analyzer")
+
+# Add file selector for existing CSV files
+existing_files = get_existing_csv_files()
+if existing_files:
+    st.write("### Load Existing Data")
+    selected_file = st.selectbox(
+        "Select existing data file:",
+        options=existing_files,
+        format_func=lambda x: os.path.basename(x).replace('github_data_', '').replace('.csv', '')
+    )
+
+# Input for new username and token
+st.write("### Fetch New Data")
 username = st.text_input("Enter GitHub Username:")
+token = st.text_input("Enter GitHub Token (optional):", type="password")
 
 if st.button("Fetch Data"):
     if username:
         with st.spinner('Fetching data from GitHub...'):
-            data = get_github_data(username)
+            data = get_github_data(username, token)
             if data:
                 csv_file = save_to_csv(data, username)
                 st.success(f"Data saved to {csv_file}")
-                st.write(f"### Follower and Following Data of {username}")
-                table_data = read_csv(csv_file)
-                st.dataframe(table_data, use_container_width=True)
+                selected_file = csv_file  # Automatically select newly created file
             else:
-                st.error("Failed to fetch data from GitHub API")
+                st.error("Failed to fetch data from GitHub API, enter a token to get more requests.")
     else:
         st.warning("Please enter a username.")
 
-csv_file = os.path.join("data", f"github_data_{username}.csv")
-if os.path.exists(csv_file):
-    table_data = read_csv(csv_file)
+# Process and display data
+if 'selected_file' in locals() and os.path.exists(selected_file):
+    table_data = read_csv(selected_file)
+    current_username = os.path.basename(selected_file).replace('github_data_', '').replace('.csv', '')
+    
+    st.write(f"### Follower and Following Data of {current_username}")
+    st.dataframe(table_data, use_container_width=True)
     
     following_count = sum(1 for row in table_data if row['following'] == 'Yes')
     followers_count = sum(1 for row in table_data if row['follower'] == 'Yes')
@@ -80,7 +101,6 @@ if os.path.exists(csv_file):
     st.write(f"**Not Following Back:** {len(not_following_back)}")
     st.write(f"**Mutual Followers:** {len(mutual_followers)}")
     
-    # Followers/Following ratio
     if following_count > 0:
         ratio = followers_count / following_count
         st.write(f"**Followers/Following Ratio:** {ratio:.2f}")
@@ -88,13 +108,11 @@ if os.path.exists(csv_file):
     with st.expander("Show Detailed Stats"):
         st.write("### Users Not Following Back")
         
-        # Creazione della tabella HTML con link cliccabili
         html_table = "<table><tr><th>Username</th><th>Link</th></tr>"
         for row in not_following_back:
             html_table += f"<tr><td>{row['username']}</td><td><a href='{row['link']}' target='_blank'>Open Profile</a></td></tr>"
         html_table += "</table>"
         
-        # Visualizzazione della tabella
         st.markdown(html_table, unsafe_allow_html=True)
         
         st.write("### Mutual Followers")
@@ -129,7 +147,7 @@ if os.path.exists(csv_file):
     
     st.download_button(
         label="Download CSV",
-        data=open(csv_file, 'rb').read(),
-        file_name=f"github_data_{username}.csv",
+        data=open(selected_file, 'rb').read(),
+        file_name=f"github_data_{current_username}.csv",
         mime="text/csv"
     )
