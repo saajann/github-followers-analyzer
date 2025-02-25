@@ -1,0 +1,57 @@
+username,following,follower,link,avatar_url,name,bio,public_repos,location
+sindresorhus,Yes,No,https://github.com/sindresorhus,https://avatars.githubusercontent.com/u/170270?v=4,Sindre Sorhus,"Full-Time Open-Sourcerer. Focused on Swift & JavaScript. Makes macOS apps, CLI tools, npm packages.",1115,
+mistercrunch,Yes,No,https://github.com/mistercrunch,https://avatars.githubusercontent.com/u/487433?v=4,Maxime Beauchemin,creator of Apache Airflow and Apache Superset - founder at Preset,71,"San Mateo, CA"
+angusshire,No,Yes,https://github.com/angusshire,https://avatars.githubusercontent.com/u/5877145?v=4,Angus H.,,18,"Berkeley, CA"
+abinavseelan,Yes,No,https://github.com/abinavseelan,https://avatars.githubusercontent.com/u/6417910?v=4,Abinav Seelan,UI Engineer @Uber,33,"Bangalore, India"
+samdutton,Yes,No,https://github.com/samdutton,https://avatars.githubusercontent.com/u/205226?v=4,Sam Dutton,"Developer Advocate for Google Chrome. Born in South Australia, based in London. 
+Creator of simpl.info: simplest-possible examples of HTML, CSS and JavaScript.",118,"London, England"
+chethan2patil,Yes,Yes,https://github.com/chethan2patil,https://avatars.githubusercontent.com/u/6858533?v=4,Chethan VijayKumar,Exploring,22,Banglore
+addyosmani,Yes,No,https://github.com/addyosmani,https://avatars.githubusercontent.com/u/110953?v=4,Addy Osmani,Engineering Lead at Google working on Chrome & Web Platform,333,"Mountain View, California"
+kaloraat,Yes,No,https://github.com/kaloraat,https://avatars.githubusercontent.com/u/15702617?v=4,Ryan (Narayan) Dhungel,Web Developer,66,Sydney Australia
+Connor9994,No,Yes,https://github.com/Connor9994,https://avatars.githubusercontent.com/u/39637206?v=4,Connor,,20,
+nzakas,Yes,No,https://github.com/nzakas,https://avatars.githubusercontent.com/u/38546?v=4,Nicholas C. Zakas,"Creator of ESLint, independent software developer, consultant, coach, and author.",74,"Boston, MA"
+technologiclee,No,Yes,https://github.com/technologiclee,https://avatars.githubusercontent.com/u/93859?v=4,Lee Nelson,,158,Shenzhen China
+debasishg,Yes,No,https://github.com/debasishg,https://avatars.githubusercontent.com/u/107231?v=4,Debasish Ghosh,"Programmer at large. Author: Functional and Reactive Domain Modeling (Manning 2016), DSLs In Action (Manning 2010). Father. Husband. Seinfeld fanboy
+",95,India
+Harishk820,No,Yes,https://github.com/Harishk820,https://avatars.githubusercontent.com/u/22270538?v=4,,,23,
+gjain574,No,Yes,https://github.com/gjain574,https://avatars.githubusercontent.com/u/19173627?v=4,Gautam Jain,"Javascript Dev | Figma Designer | Chrome Extension. 
+
+Portfolio Projects : https://jaingautam.com/projects",5,
+JCSIVO,No,Yes,https://github.com/JCSIVO,https://avatars.githubusercontent.com/u/104387283?v=4,JCSIVO,Finding Passion in the Back-End Developer World: C# | .NET | Python | Java | Spring | Git | JUnit | JavaScript | PHP | Laravel | Symfony | SQL ,29,"España, Spain"
+getify,Yes,No,https://github.com/getify,https://avatars.githubusercontent.com/u/150330?v=4,Kyle Simpson,Kyle Simpson is a Human-Centric Technologist. He's fighting for the people behind the pixels.,69,"Austin, TX"
+supertokens,Yes,No,https://github.com/supertokens,https://avatars.githubusercontent.com/u/50478857?v=4,SuperTokens,Open source alternative to Auth0 / Firebase Auth / AWS Cognito,63,
+acdlite,Yes,No,https://github.com/acdlite,https://avatars.githubusercontent.com/u/3624098?v=4,Andrew Clark,"React core team, Next.js, Vercel
+",73,New York
+ebidel,Yes,No,https://github.com/ebidel,https://avatars.githubusercontent.com/u/238208?v=4,Eric Bidelman,"Distinguished Engineer @ Yahoo. xLyft. xGoogle, Chrome team. ❤️ all things web.",79,"Los Angeles, CA"
+siddharthkp,Yes,No,https://github.com/siddharthkp,https://avatars.githubusercontent.com/u/1863771?v=4,Siddharth Kshetrapal,design systems engineer at @github @primer; building @ui-devtools,129,Amsterdam
+cusspvz,No,Yes,https://github.com/cusspvz,https://avatars.githubusercontent.com/u/3604053?v=4,José Moreira,"Software Architecture, Security and Infrastructure | Open-Source <3",170,"Póvoa de Varzim, Porto, Portugal"
+eslint-stylistic,Yes,No,https://github.com/eslint-stylistic,https://avatars.githubusercontent.com/u/144717797?v=4,ESLint Stylistic,Stylistic & formatting rules for ESLint,3,
+RamotionDev,Yes,No,https://github.com/RamotionDev,https://avatars.githubusercontent.com/u/8984754?v=4,Ramotion,Web & Mobile App Development Company,0,"San Francisco, CA"
+ajithrnayak,Yes,No,https://github.com/ajithrnayak,https://avatars.githubusercontent.com/u/3415400?v=4,Ajith Renjala,Swift/Objective-C since iOS 6,35,"Bangalore, India"
+sachin-adkar,No,Yes,https://github.com/sachin-adkar,https://avatars.githubusercontent.com/u/32301195?v=4,sachinadkar,Crafting Digital Excellence from Frontend to Backend.,21,Bengaluru
+chuanxshi,Yes,No,https://github.com/chuanxshi,https://avatars.githubusercontent.com/u/153513?v=4,Chuan Shi,"Senior engineer guiding developers to mastery in web, serverless & AI development. Avoid common pitfalls and embrace best pracatices 🚀",21,Singapore
+mssalvo,No,Yes,https://github.com/mssalvo,https://avatars.githubusercontent.com/u/5181298?v=4,Salvo,,57,
+akara,Yes,No,https://github.com/akara,https://avatars.githubusercontent.com/u/77111?v=4,Akara Sucharitakul,,16,"White Salmon, WA"
+divyenduz,Yes,No,https://github.com/divyenduz,https://avatars.githubusercontent.com/u/746482?v=4,Divyendu Singh,Learn and build. ,28,"Berlin, Germany"
+MylesBorins,Yes,No,https://github.com/MylesBorins,https://avatars.githubusercontent.com/u/498775?v=4,Myles Borins,"Artist, musician, developer, and maker. Product @snowflakedb ❄️",335,Toronto
+davidfowl,Yes,No,https://github.com/davidfowl,https://avatars.githubusercontent.com/u/95136?v=4,David Fowler,"Distinguished Engineer 🧐 at Microsoft on the ASP.NET team, Creator of SignalR",262,"Bellevue, WA"
+corysimmons,Yes,No,https://github.com/corysimmons,https://avatars.githubusercontent.com/u/224636?v=4,Cory Simmons,,124,
+BoavistaLudwig,No,Yes,https://github.com/BoavistaLudwig,https://avatars.githubusercontent.com/u/95169251?v=4,Ludwig Villalba,"coding, manufacturing & mingling",8,Europe
+Rajashekar26,No,Yes,https://github.com/Rajashekar26,https://avatars.githubusercontent.com/u/53084300?v=4,,,3,
+Kailash-Sankar,Yes,Yes,https://github.com/Kailash-Sankar,https://avatars.githubusercontent.com/u/3972209?v=4,Kailash Sankar,Full stack web developer 👾 ,30,Bangalore
+gaearon,Yes,No,https://github.com/gaearon,https://avatars.githubusercontent.com/u/810438?v=4,dan,,281,
+defunkt,Yes,No,https://github.com/defunkt,https://avatars.githubusercontent.com/u/2?v=4,Chris Wanstrath,🍔,107,
+tj,Yes,No,https://github.com/tj,https://avatars.githubusercontent.com/u/25254?v=4,TJ Holowaychuk,,296,"London, UK"
+feross,Yes,No,https://github.com/feross,https://avatars.githubusercontent.com/u/121766?v=4,Feross Aboukhadijeh,"• Founder + CEO of Socket (@SocketDev) 
+• Started @webtorrent and @standard 
+• 100+ open source packages on npm
+• Stanford lecturer for Web Security",148,"Stanford, CA"
+mayeaux,No,Yes,https://github.com/mayeaux,https://avatars.githubusercontent.com/u/7200471?v=4,Anthony,Working on software professionally since 2013. Focusing mostly on the web/JavaScript. Recent interest in AI and ASR.,204,
+joshjung,Yes,Yes,https://github.com/joshjung,https://avatars.githubusercontent.com/u/913181?v=4,Joshua Jung,Full-stack expert and owner of Guidestar Digital.,74,"Austin, TX"
+yegor256,Yes,No,https://github.com/yegor256,https://avatars.githubusercontent.com/u/526301?v=4,Yegor Bugayenko,"Author of ""Elegant Objects"" book series (buy them on Amazon); architect of @objectionary; founder of @zerocracy; creator of @zold-io",192,China
+MalavVyas,No,Yes,https://github.com/MalavVyas,https://avatars.githubusercontent.com/u/16465933?v=4,Malav Vyas,Young infosec researcher and machine learning enthusiast,56,New York
+learnbyexample,Yes,No,https://github.com/learnbyexample,https://avatars.githubusercontent.com/u/17766317?v=4,Sundeep Agarwal,"Addicted to writing books and teaching. Likes fantasy books, comics and anime",33,
+dalindev,No,Yes,https://github.com/dalindev,https://avatars.githubusercontent.com/u/6508763?v=4,Dalin Huang,"“Stay Hungry, Stay Foolish”",34,"Ottawa, Earth #7"
+threepointone,Yes,No,https://github.com/threepointone,https://avatars.githubusercontent.com/u/18808?v=4,Sunil Pai,,302,"London, England"
+benawad,Yes,No,https://github.com/benawad,https://avatars.githubusercontent.com/u/7872329?v=4,Ben Awad,"React.js, Typescript, Node.js, PostgreSQL",255,"Austin, TX"
+dashersw,Yes,No,https://github.com/dashersw,https://avatars.githubusercontent.com/u/698308?v=4,Armagan Amcalar,"Software architect, leader, lecturer, public speaker, mentor, entrepreneur, JS evangelist, electronics engineer, guitarist, singer, radio host.",204,Berlin

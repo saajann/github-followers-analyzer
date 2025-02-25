@@ -41,7 +41,7 @@ def get_github_data(username, token=None):
     return None
 
 def save_to_csv(data, username, token=None):
-    filename = f"github_data_{username}.csv"
+    filename = f"csv/github_data_{username}.csv"
     filepath = os.path.join("data", filename)
     if os.path.exists(filepath):
         os.remove(filepath)
@@ -79,13 +79,12 @@ def save_to_csv(data, username, token=None):
     
     return filepath
 
-
 def read_csv(filepath):
     with open(filepath, mode='r') as file:
         return list(csv.DictReader(file))
 
 def get_existing_csv_files():
-    return glob.glob("data/github_data_*.csv")
+    return glob.glob("data/csv/github_data_*.csv")
 
 def show_overview_tab(table_data, current_username):
     following_count = sum(1 for row in table_data if row['following'] == 'Yes')
@@ -113,10 +112,17 @@ def show_overview_tab(table_data, current_username):
         cols = st.columns(3)
         for idx, user in enumerate(table_data):
             with cols[idx % 3]:
+                # Determine card color based on follow status
+                card_color = "#FFFFFF"  # Default white (they follow you, you don't follow them)
+                if user['following'] == 'Yes' and user['follower'] == 'No':
+                    card_color = "#FFCCCC"  # Red (you follow them, they don't follow back)
+                elif user['following'] == 'Yes' and user['follower'] == 'Yes':
+                    card_color = "#CCFFCC"  # Green (mutual follow)
+                
                 with st.container():
                     st.markdown(
                         f"""
-                        <div style="padding: 1rem; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 1rem">
+                        <div style="padding: 1rem; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 1rem; background-color: {card_color};">
                             <div style="display: flex; align-items: center; margin-bottom: 10px">
                                 <img src="{user['avatar_url']}" style="width: 60px; height: 60px; border-radius: 50%; margin-right: 10px">
                                 <div>
@@ -140,7 +146,7 @@ def show_overview_tab(table_data, current_username):
     st.download_button(
         label="Download CSV",
         data=open(st.session_state.current_file, 'rb').read(),
-        file_name=f"github_data_{current_username}.csv",
+        file_name=f"csv/github_data_{current_username}.csv",
         mime="text/csv"
     )
 
@@ -156,7 +162,7 @@ def show_not_following_back_tab(table_data):
             with st.container():
                 st.markdown(
                     f"""
-                    <div style="padding: 1rem; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 1rem">
+                    <div style="padding: 1rem; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 1rem; background-color: #FFCCCC;">
                         <div style="display: flex; align-items: center; margin-bottom: 10px">
                             <img src="{user['avatar_url']}" style="width: 60px; height: 60px; border-radius: 50%; margin-right: 10px">
                             <div>
@@ -265,6 +271,25 @@ def show_visualizations_tab(table_data):
     ```
     """.format(mutual=mutual, only_following=only_following, only_followers=only_followers))
 
+    # Add color code legend
+    st.write("### 🎨 Follow Status Color Legend")
+    st.markdown("""
+    <div style="display: flex; gap: 20px;">
+        <div style="display: flex; align-items: center;">
+            <div style="width: 20px; height: 20px; background-color: #FFCCCC; margin-right: 10px;"></div>
+            <span>You follow them, they don't follow back</span>
+        </div>
+        <div style="display: flex; align-items: center;">
+            <div style="width: 20px; height: 20px; background-color: #CCFFCC; margin-right: 10px;"></div>
+            <span>Mutual followers</span>
+        </div>
+        <div style="display: flex; align-items: center;">
+            <div style="width: 20px; height: 20px; background-color: #FFFFFF; border: 1px solid #ddd; margin-right: 10px;"></div>
+            <span>They follow you, you don't follow back</span>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
     # Activity Analysis
     st.write("### 📈 Most Active Users in Your Network")
     
@@ -333,13 +358,33 @@ with st.sidebar:
             with st.spinner('Fetching data from GitHub...'):
                 data = get_github_data(username, token)
                 if data:
-                    csv_file = save_to_csv(data, username)
+                    csv_file = save_to_csv(data, username, token)
                     st.success(f"Data saved for {username}")
                     st.session_state.current_file = csv_file
                 else:
                     st.error("Failed to fetch data from GitHub API. Try using a token to get more requests.")
         else:
             st.warning("Please enter a username.")
+
+    # Add color code legend to sidebar
+    st.markdown("---")
+    st.write("### Color Legend")
+    st.markdown("""
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="display: flex; align-items: center;">
+            <div style="width: 20px; height: 20px; background-color: #FFCCCC; margin-right: 10px;"></div>
+            <span>You follow them, they don't follow back</span>
+        </div>
+        <div style="display: flex; align-items: center;">
+            <div style="width: 20px; height: 20px; background-color: #CCFFCC; margin-right: 10px;"></div>
+            <span>Mutual followers</span>
+        </div>
+        <div style="display: flex; align-items: center;">
+            <div style="width: 20px; height: 20px; background-color: #FFFFFF; border: 1px solid #ddd; margin-right: 10px;"></div>
+            <span>They follow you, you don't follow back</span>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
 # Main content area with tabs
 if 'current_file' in st.session_state and os.path.exists(st.session_state.current_file):
