@@ -2,7 +2,9 @@
 
 A Streamlit web app that analyzes your GitHub network to see who follows you and who doesn't follow you back.
 
-![GitHub Follow Check](https://raw.githubusercontent.com/username/github-follow-check/main/screenshot.png)
+![Overview](screens/overview.png)  
+![Not Following Back](screens/not_following_back.png)  
+![Visualization](screens/visualization.png)  
 
 ## Features
 
