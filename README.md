@@ -42,7 +42,7 @@ cd github-follow-check
 pip install -r requirements.txt
 
 # Run the app
-streamlit run app.py
+streamlit run scripts/app.py
 ```
 
 ## Usage
